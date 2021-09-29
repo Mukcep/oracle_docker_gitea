@@ -34,7 +34,7 @@ services:
       - db
 
   db:
-    image: mysql/mysql-server:latest
+    image: mysql/mysql:8.0
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=gitea
