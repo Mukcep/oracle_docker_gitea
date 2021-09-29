@@ -27,21 +27,21 @@ services:
       - gitea:/data
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
-     ports:
-       - "8010:3000"
-       - "2122:22"
-     depends_on:
-       - db
- 
-   db:
-     image: mysql:8
-     restart: always
-     environment:
-       - MYSQL_ROOT_PASSWORD=gitea
-       - MYSQL_USER=gitea
-       - MYSQL_PASSWORD=gitea
-       - MYSQL_DATABASE=gitea
-     networks:
-       - gitea
-     volumes:
-       - ./mysql:/var/lib/mysql
+    ports:
+      - "8010:3000"
+      - "2122:22"
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=gitea
+      - MYSQL_USER=gitea
+      - MYSQL_PASSWORD=gitea
+      - MYSQL_DATABASE=gitea
+    networks:
+      - gitea
+    volumes:
+      - ./mysql:/var/lib/mysql
